@@ -28,6 +28,26 @@
         color: white;
       }
 
+      #button-room {
+        background-color: #3e8e41; /* Set the background color */
+        border: none; /* Remove border */
+        color: black; /* Set text color to white */
+        padding: 15px 32px; /* Set padding */
+        text-align: center; /* Center text */
+        text-decoration: none; /* Remove underline */
+        display: inline-block; /* Set as inline block */
+        font-size: 16px; /* Set font size */
+        border-radius: 4px; /* Set border radius */
+        cursor: pointer; /* Add cursor pointer */
+        transition-duration: 0.4s; /* Add transition */
+      }
+
+      /* Hover effect */
+      #button-room:hover {
+        background-color: darkgreen;
+        color: white;
+      }
+
       #input {
         padding: 10px 20px; /* Set padding */
         font-size: 16px; /* Set font size */
@@ -41,14 +61,24 @@
         outline: none; /* Remove default outline */
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Add focus shadow effect */
       }
-      
     </style>
   </head>
   <body>
     <div id="room-container">
+      <h1>CHAT ROOM</h1>
       <% Object.keys(rooms).forEach(room => { %>
-      <div><%= room %></div>
-      <a href="/<%= room %>">Join</a>
+      <a href="/<%= room %>">
+        <button id="button-room">
+          <tr>
+            <td>
+              <div>
+                <h3><%= room %></h3>
+              </div>
+            </td>
+            <td>Click to join</td>
+          </tr>
+        </button>
+      </a>
       <% }) %>
     </div>
     <form action="/room" method="POST">
